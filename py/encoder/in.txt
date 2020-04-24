@@ -1,0 +1,1 @@
+Get-ChildItem -Path C:\Users\netscape\Desktop\project\ps\recursive_remove_files\test_dir -Force -Recurse | rm

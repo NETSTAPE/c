@@ -1,0 +1,5 @@
+Set-ExecutionPolicy Unrestricted -Force
+
+https://docs.microsoft.com/ru-ru/powershell/scripting/samples/working-with-files-and-folders?view=powershell-7
+https://windowsnotes.ru/powershell-2/komandlety-powershell-dlya-vyvoda-dannyx/
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-7
