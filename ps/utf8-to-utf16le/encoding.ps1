@@ -1,0 +1,1 @@
+Get-Content utf8.txt -Encoding UTF8 | Set-Content -Encoding Unicode utf16le.txt
