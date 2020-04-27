@@ -1,10 +1,13 @@
 #Requires -RunAsAdministrator
 
+Add-Type -AssemblyName PresentationCore
+
 function MainMenu
 {
 	Write-Host "Menus:"
 	Write-Host "1. Recursive calculate hash summs"
 	Write-Host "2. Equals a hash summs"
+	Write-Host "3. Get string hash from clipboard"
 	Write-Host "Q. Exit"
 	Write-Host "Select: " -NoNewLine
 	$option = Read-Host
@@ -14,6 +17,7 @@ function MainMenu
 	{
 		1 {CalculateHashSumm}
 		2 {EqualsHashSumms}
+		3 {GetStringHashFromClipboard}
 		Q 
 		{
 			Write-Host "Bay!"
@@ -26,6 +30,32 @@ function MainMenu
 		}
 	}
 }
+
+function GetStringHashFromClipboard
+{
+	Write-Host "Clipboard string: " -NoNewLine
+	Write-Host ([Windows.Clipboard]::GetText())
+
+	Write-Host "Select algorithm (like SHA1,SHA256,SHA384,SHA512,MACTripleDES,MD5,RIPEMD160):"
+	$algorithm = Read-Host
+
+	if ($algorithm -ne "SHA1" -and $algorithm -ne "SHA256" -and $algorithm -ne "SHA384" -and $algorithm -ne "SHA512" -and $algorithm -ne "MACTripleDES" -and $algorithm -ne "MD5")
+	{
+		Write-Host "This algorithm not existed, sorry"
+		Exit
+	}
+
+	$stringAsStream = [System.IO.MemoryStream]::new()
+	$writer = [System.IO.StreamWriter]::new($stringAsStream)
+	$writer.write([Windows.Clipboard]::GetText())
+	$writer.Flush()
+	$stringAsStream.Position = 0
+	
+	Get-FileHash -InputStream $stringAsStream -Algorithm $algorithm | Format-List
+
+	Exit
+}
+
 
 function EqualsHashSumms
 {

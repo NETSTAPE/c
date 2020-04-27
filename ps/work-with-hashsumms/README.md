@@ -4,4 +4,5 @@
 ## Features
 	• You can equal file hash summs
 	• Recursive calculating hash summs
+	• Calculating hash summ from buffer
 	• Simple console main menu
