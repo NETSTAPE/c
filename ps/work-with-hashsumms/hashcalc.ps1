@@ -38,8 +38,9 @@ function GetStringHashFromClipboard
 
 	Write-Host "Select algorithm (like SHA1,SHA256,SHA384,SHA512,MACTripleDES,MD5,RIPEMD160):"
 	$algorithm = Read-Host
+	$algorithm = $algorithm.ToLower()
 
-	if ($algorithm -ne "SHA1" -and $algorithm -ne "SHA256" -and $algorithm -ne "SHA384" -and $algorithm -ne "SHA512" -and $algorithm -ne "MACTripleDES" -and $algorithm -ne "MD5")
+	if ($algorithm -ne "sha1" -and $algorithm -ne "sha256" -and $algorithm -ne "sha384" -and $algorithm -ne "sha512" -and $algorithm -ne "mactripledes" -and $algorithm -ne "md5")
 	{
 		Write-Host "This algorithm not existed, sorry"
 		Exit
@@ -61,10 +62,11 @@ function EqualsHashSumms
 {
 	Write-Host "Select algorithm (like SHA1,SHA256,SHA384,SHA512,MACTripleDES,MD5,RIPEMD160):"
 	$algorithm = Read-Host
+	$algorithm = $algorithm.ToLower()
 
-	if ($algorithm -ne "SHA1" -and $algorithm -ne "SHA256" -and $algorithm -ne "SHA384" -and $algorithm -ne "SHA512" -and $algorithm -ne "MACTripleDES" -and $algorithm -ne "MD5")
+	if ($algorithm -ne "sha1" -and $algorithm -ne "sha256" -and $algorithm -ne "sha384" -and $algorithm -ne "sha512" -and $algorithm -ne "mactripledes" -and $algorithm -ne "md5")
 	{
-		Write-Host "This algorithm not existed, sorry..."
+		Write-Host "This algorithm not existed, sorry"
 		Exit
 	}
 	
@@ -110,8 +112,9 @@ function CalculateHashSumm
 
 	Write-Host "Select algorithm (like SHA1,SHA256,SHA384,SHA512,MACTripleDES,MD5,RIPEMD160):"
 	$algorithm = Read-Host
+	$algorithm = $algorithm.ToLower()
 
-	if ($algorithm -ne "SHA1" -and $algorithm -ne "SHA256" -and $algorithm -ne "SHA384" -and $algorithm -ne "SHA512" -and $algorithm -ne "MACTripleDES" -and $algorithm -ne "MD5")
+	if ($algorithm -ne "sha1" -and $algorithm -ne "sha256" -and $algorithm -ne "sha384" -and $algorithm -ne "sha512" -and $algorithm -ne "mactripledes" -and $algorithm -ne "md5")
 	{
 		Write-Host "This algorithm not existed, sorry"
 		Exit
