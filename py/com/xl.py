@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+
 import openpyxl
 
-sheetName = u'xl.xlsx'
-tablesDir = u'tables\\'
+sheetName = 'xl.xlsx'
+tablesDir = 'tables\\'
 
 try:
 	wb = openpyxl.load_workbook(filename = tablesDir + sheetName)
@@ -13,15 +15,15 @@ try:
 	val = sheet['B1'].value
 	print(val)
 
-	sheet['A2'] = u'Hello'
-	sheet['B2'] = u'from'
-	sheet['C2'] = u'Python!'
+	sheet['A2'] = 'Hello'
+	sheet['B2'] = 'from'
+	sheet['C2'] = 'Python!'
 
 	try:
 		wb.save(tablesDir + sheetName)
-		print(u'Added new sheets value, check the ' + sheetName)
+		print('Added new sheets value, check the ' + sheetName)
 	except PermissionError:
-		print(u'[~] Permission Error! [~]')
+		print('[~] Permission Error! [~]')
 
 except FileNotFoundError:
-	print(u'[~] File not founded! [~]')
+	print('[~] File not founded! [~]')
