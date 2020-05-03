@@ -117,22 +117,30 @@ def encodeString(type):
     if type == '1':
         if algorithm == '1':
             md5hashString()
+            raise SystemExit(1)
         elif algorithm == '2':
             sha1hashString()
+            raise SystemExit(1)
         elif algorithm == '3':
             sha256hashString()
+            raise SystemExit(1)
         elif algorithm == '4':
             sha384hashString()
+            raise SystemExit(1)
 
     elif type == '2':
         if algorithm == '1':
             md5hashFile()
+            raise SystemExit(1)
         elif algorithm == '2':
             sha1hashFile()
+            raise SystemExit(1)
         elif algorithm == '3':
             sha256hashFile()
+            raise SystemExit(1)
         elif algorithm == '4':
             sha384hashFile()
+            raise SystemExit(1)
 
     print('Error, this algorithm method not exists')
 
